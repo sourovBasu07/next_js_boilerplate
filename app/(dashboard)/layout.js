@@ -1,17 +1,10 @@
-import { Poppins } from "next/font/google";
-import "@/app/globals.css";
-import ContextProvider from "@/utils/ContextProvider";
-// import DashboardSidebar from "@/components/layout/DashboardSidebar";
-import Footer from "@/components/footer/Footer";
-import DashboardSidebar from "../../components/layout/DashboardSidebar";
+// Sub-layout for dashboard routes group 
 
-const poppins = Poppins({
-    subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
-});
+import DashboardSidebar from "../../components/layout/DashboardSidebar";
+import DashboardNavbar from "@/components/navbar/DashboardNavbar";
 
 export const metadata = {
-    title: "Next JS App",
+    title: "Dashboard",
     description: "App boilerplate created using Next.js",
     icons: {
         icon: "next.svg",
@@ -22,14 +15,13 @@ export default function RootLayout({
     children,
 }) {
     return (
-        <html lang="en">
-            <body className={poppins.className}>
-                <ContextProvider>
-                    <DashboardSidebar />
-                    {children}
-                </ContextProvider>
-            </body>
-        </html>
+        <div className="">
+            <DashboardSidebar />
+            <div className="">
+                <DashboardNavbar />
+                {children}
+            </div>
+        </div>
         // </SessionProvider>
     );
 }

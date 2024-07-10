@@ -7,7 +7,7 @@ import Error from 'next/error';
 const Dashboard = () => {
     const { user } = useContext(UserContext);
 
-    if (user) throw new Error({ message: "User exists" });
+    if (!user) throw new Error({ message: "User doen not exist!" });
 
     console.log(user);
     return (

@@ -1,5 +1,8 @@
+// Wrapper layout for the whole app including other sub-layouts 
+
 import { Poppins } from "next/font/google";
 import "@/app/globals.css";
+import ContextPovider from "@/utils/ContextProvider";
 
 const poppins = Poppins({
     subsets: ["latin"],
@@ -20,7 +23,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={poppins.className}>
-                {children}
+                <ContextPovider>
+                    {children}
+                </ContextPovider>
             </body>
         </html>
     );
