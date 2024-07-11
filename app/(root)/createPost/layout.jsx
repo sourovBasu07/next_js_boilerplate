@@ -1,4 +1,6 @@
-// Sub-layout for landing page 
+// Layout for intercepting route 
+// @param modal is the interceping modal slot 
+// Need to use the same name as the slot route name 
 
 import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
@@ -12,13 +14,13 @@ export const metadata = {
 };
 
 export default function RootLayout({
-    children
+    children,
+    modal
 }) {
     return (
         <div className="">
-            <Navbar />
+            {modal}
             {children}
-            <Footer />
         </div>
     );
 }

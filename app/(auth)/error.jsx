@@ -13,7 +13,7 @@ export default function Error({ error, reset }) {
 
     return (
         <div>
-            <h2>{error?.props.message}</h2>
+            <h2>{error?.props}</h2>
             <button
                 onClick={
                     // Attempt to recover by trying to re-render the segment

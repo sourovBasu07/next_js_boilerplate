@@ -1,13 +1,11 @@
-// This is the landing page 
-
-import Button from '@/components/shared/button/Button';
-import Link from 'next/link';
+import Button from '@/components/shared/button/Button'
+import Link from 'next/link'
 import React from 'react'
 
-const Homepage = () => {
+const CreatePost = () => {
     return (
         <div>
-            Root Page
+            CreatePost
             <Link href="/login">
                 <Button type='submit' name='Sign In' className='bg-primary2 hover:bg-primary text-base font-medium leading-6' />
             </Link>
@@ -15,4 +13,4 @@ const Homepage = () => {
     )
 }
 
-export default Homepage
+export default CreatePost

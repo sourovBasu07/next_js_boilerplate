@@ -1,11 +1,11 @@
-"use client";
+
 /**
  * Input Component
  *
  * A reusable input component with customizable styles and attributes.
  *
  * @param {Object} props - The component's props.
- * @param {string} [props.style='style1'] - The style of the input.
+ * @param {string} [props.style='primary'] - The style of the input.
  * @param {string} [props.className=''] - Additional CSS classes for the input.
  * @param {string} [props.id=''] - The HTML id attribute for the input.
  * @param {string} [props.name=''] - The HTML name attribute for the input.
@@ -17,24 +17,26 @@
  *
  * @returns {ReactNode} The rendered input component.
  */
-import React, { useRef } from 'react';
-import searchIcon from '../../../assets/Icons/search.svg';
-import plus from '../../../assets/Icons/plus.svg';
-import minus from '../../../assets/Icons/minus.svg';
+import React, { useRef, useState } from 'react';
 import Image from 'next/image';
+
 const styles = {
-    primary: 'border border-label rounded-full text-primary2 placeholder-label text-sm leading-[1.375rem] font-nunito focus:border-primary4',
-    secondary: 'border border-[#001E174d] rounded-full text-primary placeholder-primary text-sm leading-[1.375rem] font-nunito focus:border-primary4'
+    primary: "w-full bg-inputColor border-[0.04rem] rounded-lg border-borderColor text-blacky placeholder:text-sm placeholder:text-textColor2",
+    secondary: "w-full bg-inputColor border-[0.04rem] rounded-lg border-borderColor text-blacky placeholder:text-sm placeholder:text-textColor2",
+    outline: "w-full border-[0.04rem] rounded-lg border-borderColor text-blacky placeholder:text-sm placeholder:text-textColor2",
+    // otp: "w-full bg-white border rounded-lg border-borderColor font-medium text-primary2 text-[2rem] text-center leading-[3rem] placeholder:text-textColor2 focus:border-primary2"
 };
 const labelStyle = {
-    primary: 'text-primary1',
-    secondary: 'text-primary',
+    primary: 'font-normal text-base text-blacky',
+    secondary: 'font-normal text-base text-blacky',
 }
 const inputSize = {
-    lg: 'py-3',
-    md: 'py-2',
+    xl: "p-5",
+    lg: 'p-4',
+    md: 'px-4 py-3',
     sm: 'py-1'
 }
+
 const Input = ({
     style = 'primary',
     className = '',
@@ -44,15 +46,22 @@ const Input = ({
     onChange,
     type = 'text',
     onBlur,
-    rest = {},
     placeholder = '',
     size = 'md',
-    label = '',
+    label,
+    Icon,
+    iconClassName,
     error,
     min = 0,
-    max
+    max,
+    ref,
+    required,
+    rest = {}
 }) => {
+    const [showPassword, setShowPassword] = useState(false);
     const quantityRef = useRef();
+    const iconInputRef = useRef();
+
     const decrementHandler = () => {
         const current = Number(quantityRef.current.value);
         if (current > 0) {
@@ -65,10 +74,10 @@ const Input = ({
 
     if (type === 'search') {
         return (
-            <div className={`flex gap-2 items-center border px-4 border-label rounded-full ${className} ${inputSize[size]}`}>
-                <Image className={size === 'lg' ? 'h-6 w-6' : 'h-4 w-4'} src={searchIcon} alt="" />
+            <div className={`w-full flex gap-3 items-center border px-3 border-borderColor bg-inputColor rounded-xl ${className} ${inputSize[size]}`}>
+                <Image className={size === 'lg' ? 'h-full w-full' : 'h-4 w-4'} src={searchIcon} alt="searchIcon" />
                 <input
-                    className={`text-label  focus:outline-none  `}
+                    className={`text-textColor w-full bg-inputColor focus:outline-none`}
                     id={id}
                     name={name}
                     value={value}
@@ -82,11 +91,11 @@ const Input = ({
         );
     } else if (type === 'quantity') {
         return (
-            <div className='flex flex-col'>
-                <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}</label>
+            <div className='w-full flex flex-col'>
+                {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}</label>}
 
                 <div className={`${styles[style]} ${className} ${inputSize[size]} px-6 ${error ? 'border-danger' : ''} flex items-center justify-between`} >
-                    <Image className='cursor-pointer' onClick={() => decrementHandler(value)} src={minus} alt="" />
+                    {/* <Image className='cursor-pointer' onClick={() => decrementHandler(value)} src={minus} alt="" /> */}
                     <input
                         className={` focus:outline-none w-full text-center`}
                         ref={quantityRef}
@@ -105,12 +114,63 @@ const Input = ({
                 </div>
             </div>
         )
-    } else {
+    } else if (type === "password") {
         return (
-            <div className='flex flex-col'>
-                <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}</label>
+            <div className={`flex flex-col cursor-text`} >
+                {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}{required && <span className='text-error'> * </span>}</label>}
+                <div className={`${styles[style]} relative flex items-center border-[0.04rem] rounded-lg border-borderColor pr-4 ${className}`}>
+                    <input
+                        className={`${styles[style]} ${inputSize[size]} border-none focus:outline-none ${error ? 'border-danger' : ''}`}
+                        id={id}
+                        name={name}
+                        value={value}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        type={showPassword ? "text" : "password"}
+                        min={min}
+                        max={max}
+                        placeholder={placeholder}
+                        ref={iconInputRef}
+                        {...rest}
+                        required
+                    />
+
+                    {/* {Icon && (showPassword ? <HidePasswordIcon onClick={() => setShowPassword(!showPassword)} className={`${iconClassName} cursor-pointer`} /> : <ShowPasswordIcon onClick={() => setShowPassword(!showPassword)} className={`${iconClassName} cursor-pointer`} />)} */}
+
+                </div>
+
+            </div>
+        )
+
+    } else if (type === "iconInput") {
+        return (<div className={`flex flex-col cursor-text`} onClick={() => iconInputRef.current.focus()}>
+            {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}{required && <span className='text-error'> * </span>}</label>}
+            <div className={`relative flex items-center border-[0.04rem] rounded-lg border-borderColor pr-4 ${className}`}>
                 <input
-                    className={`${styles[style]} ${className} ${inputSize[size]} focus:outline-none px-6 ${error ? 'border-danger' : ''}`}
+                    className={`${styles[style]} ${inputSize[size]} border-none focus:outline-none ${error ? 'border-danger' : ''}`}
+                    id={id}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    type={type}
+                    min={min}
+                    max={max}
+                    placeholder={placeholder}
+                    ref={iconInputRef}
+                    {...rest}
+                />
+                {Icon && <Icon className={`${iconClassName}`} />}
+            </div>
+
+        </div>
+        )
+    } else if (type === "textarea") {
+        return (
+            <div className='w-full flex flex-col'>
+                {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}{required && <span className='text-error'> * </span>}</label>}
+                <textarea
+                    className={`${styles[style]} ${className} ${inputSize[size]}  focus:outline-none resize-none ${error ? 'border-error' : ''}`}
                     id={id}
                     name={name}
                     value={value}
@@ -123,8 +183,29 @@ const Input = ({
                     {...rest}
                 />
             </div>
+        )
+    } else {
+        return (
+            <div className={`w-full flex flex-col ${className}`}>
+                {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}{required && <span className='text-error'> * </span>}</label>}
+                <input
+                    className={`${styles[style]} ${inputSize[size]} focus:outline-none px-6 ${error ? 'border-danger' : ''}`}
+                    id={id}
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    type={type}
+                    min={min}
+                    max={max}
+                    placeholder={placeholder}
+                    ref={ref}
+                    {...rest}
+                />
+            </div>
         );
     }
 };
 
 export default Input;
+
