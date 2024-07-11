@@ -26,6 +26,11 @@ Before using This project install latest versions of following packages
 - [Tailwind](https://tailwindcss.com/docs/guides/vite)
 - Other Required packages
 
+- ### Example routes that are added:
+- Dynamic routing in profile route 
+- Parallel route in settings route
+- Intercepting route in createPost route
+
 ### Public/assets
 In Assets folder you can put following things.
 - Images
