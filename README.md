@@ -4,11 +4,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 How to run the project
 ```javascript
-npm install
+yarn
 ```
 and
 ```javascript
-npm run dev
+yarn dev
 ```
 
 Following packages are used in this project:
