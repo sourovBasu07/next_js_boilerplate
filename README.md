@@ -2,47 +2,232 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
-
-```bash
+How to run the project
+```javascript
+npm install
+```
+and
+```javascript
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Poppins, a custom Google Font.
-
-Before using This project install latest versions of following packages
+Following packages are used in this project:
 
 - [Axios](https://www.npmjs.com/package/axios)
-- [Tailwind](https://tailwindcss.com/docs/guides/vite)
-- Other Required packages
+- [Tailwind](https://tailwindcss.com/docs)
+- [React hook form](https://react-hook-form.com/get-started)
+- [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
+- [Socket.IO](https://socket.io/docs/v4/tutorial/introduction)
+- [Next-auth](https://authjs.dev/getting-started/installation)
 
-- ### Example routes that are added:
-- Dynamic routing in profile route 
-- Parallel route in settings route
-- Intercepting route in createPost route
+```
+Next JS Advanced Folder Structure
+.
+├─ app
+│  ├─ (auth)
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  ├─ login
+│  │  │  └─ page.jsx
+│  │  └─ signup
+│  │     └─ page.jsx
+│  ├─ (dashboard)
+│  │  ├─ dashboard
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  ├─ profile
+│  │  │  ├─ page.jsx
+│  │  │  └─ [id]
+│  │  │     └─ page.jsx
+│  │  └─ settings
+│  │     ├─ @account
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @notification
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @privacy
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ default.jsx
+│  │     ├─ layout.js
+│  │     └─ page.jsx
+│  ├─ (root)
+│  │  ├─ createPost
+│  │  │  ├─ @modal
+│  │  │  │  ├─ (...)login
+│  │  │  │  │  └─ page.jsx
+│  │  │  │  └─ default.jsx
+│  │  │  ├─ layout.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  └─ page.jsx
+│  ├─ api
+│  │  └─ auth
+│  │     └─ [...nextauth]
+│  │        └─ route.js
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.jsx
+│  └─ not-found.jsx
+├─ components
+│  ├─ footer
+│  │  └─ Footer.jsx
+│  ├─ forms
+│  │  ├─ Loginform.jsx
+│  │  └─ SignupForm.jsx
+│  ├─ layout
+│  │  └─ DashboardSidebar.jsx
+│  ├─ navbar
+│  │  ├─ DashboardNavbar.jsx
+│  │  └─ Navbar.jsx
+│  └─ shared
+│     ├─ button
+│     │  └─ Button.jsx
+│     ├─ dropdown
+│     │  └─ Dropdown.jsx
+│     ├─ inputs
+│     │  └─ Inputs.jsx
+│     ├─ modal
+│     │  └─ Modal.jsx
+│     ├─ OtpInputs
+│     │  └─ otpInputs.jsx
+│     └─ phoneInput
+│        ├─ Dropdown.jsx
+│        └─ PhoneInput.jsx
+├─ db
+│  └─ index.js
+├─ hooks
+│  ├─ useClickOutside.js
+│  ├─ useFetch.js
+│  └─ usePagination.js
+├─ public
+│  ├─ assets
+│  │  ├─ icons
+│  │  └─ images
+├─ services
+│  ├─ apiSlices
+│  │  └─ productsSlice.js
+│  └─ socket
+│     └─ index.js
+├─ store
+│  ├─ actions
+│  ├─ contexts
+│  │  └─ userContext.jsx
+│  ├─ index.js
+│  └─ reducers
+│     └─ counterSlice.js
+└─ utils
+│  ├─ constants
+│  │  └─ index.js
+|  ├─ ContextProvider.jsx
+|  ├─ index.js
+├─ README.md
+├─ jsconfig.json
+├─ auth.js
+├─ middleware.js
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ tailwind.config.js
 
-### Public/assets
-In Assets folder you can put following things.
-- Images
-- Video
-- Icons
+```
+
+
+## Folders include
+
+- `app`
+- `components`
+- `public`
+- `db`
+- `hooks`
+- `services`
+- `store`
+- `utils`
+
+
+### Routing examples
+
+Route groups
+
+```
+├─ app
+│  ├─ (auth)
+│  │  ├─ login
+│  │  │  └─ page.jsx
+│  │  └─ signup
+│  │     └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  ├─ (dashboard)
+│  │  ├─ dashboard
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  ├─ profile
+│  │  │  ├─ page.jsx
+│  │  │  └─ [id]
+│  │  │     └─ page.jsx
+```
+
+
+Dynamic routing 
+
+```
+├─ app
+│  ├─ (dashboard)
+│  │  ├─ profile
+│  │  │  ├─ page.jsx
+│  │  │  └─ [id]
+│  │  │     └─ page.jsx
+```
+
+Paraller routing 
+
+```
+│  ├─ (dashboard)
+│  │  └─ settings
+│  │     ├─ @account
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @notification
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @privacy
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ default.jsx
+│  │     ├─ layout.js
+│  │     └─ page.jsx
+```
+
+Intercepting route 
+
+```
+│  ├─ (root)
+│  │  ├─ createPost
+│  │  │  ├─ @modal
+│  │  │  │  ├─ (...)login
+│  │  │  │  │  └─ page.jsx
+│  │  │  │  └─ default.jsx
+│  │  │  ├─ layout.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  └─ page.jsx
+```
+
+
 
 ### Components
 
-Component will have all the components which are reuseable anywhere in website. Like - Button - Cards - DropDownBtn - inputs - Modal - Popups - Toast - Tooltip - Text/Heading/Title - Skeleton - Spiner/Loader
+Includes common reusable shared components
 
 
-### constants
+### db
 
 Here we provide JSON Formate of data in frontend in React APP.
 
@@ -55,6 +240,18 @@ Here we provide JSON Formate of data in frontend in React APP.
 In Services we put configuration file, like when you are using google firebase then your firebase config file will be in services folder.
 
 The **"services"** folder is often used to contain code related to making **\*`API`** requests and managing data from external sources. This folder helps separate the concerns of your application by isolating data fetching and manipulation logic from the components that render the UI. 
+
+
+### Hooks
+
+Consists of custom hooks to separate the business logic of the components and for their reusability
+
+```
+├─ hooks
+│  ├─ useClickOutside.js
+│  ├─ useFetch.js
+│  └─ usePagination.js
+```
 
 
 ### Store
@@ -70,26 +267,20 @@ The **"services"** folder is often used to contain code related to making **\*`A
 Example: 
 ```javascript
 // utils/helpers.js
-export const hideEmail = (email) => {
-    const [name, domain] = email.split("@");
-    const hiddenEmail = `${name[0]}${new Array(name.length).join("*")}@${domain}`;
-    return hiddenEmail;
-}
+export function debounceFn(func, delay) {
+    let timer;
+
+    return (...args) => {
+        if (timer) clearTimeout(timer);
+
+        timer = setTimeout(() => {
+            func(...args)
+        }, delay)
+    }
+};
 ```
 
-### .eslintrc.cjs
-
-ESLint, which is a popular tool for linting and enforcing coding style and best practices in JavaScript code. The .eslintrc.cjs file is written in CommonJS module format and is used to configure ESLint for your project.
-
-### .gitignore
-
-.gitignore file contain all those files,folders name which user want to skip to push online. If you don't want to push any specific file/folder then you should put their name in .gitignore
-
 ### jscongig.json
-
-- File Purpose
-- Configuration Setup:
-- JSON Format
 
 ```javascript
 {
