@@ -95,3 +95,117 @@ ESLint, which is a popular tool for linting and enforcing coding style and best 
   }
 }
 ```
+
+```
+├─ app
+│  ├─ (auth)
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  ├─ login
+│  │  │  └─ page.jsx
+│  │  └─ signup
+│  │     └─ page.jsx
+│  ├─ (dashboard)
+│  │  ├─ dashboard
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  ├─ profile
+│  │  │  ├─ page.jsx
+│  │  │  └─ [id]
+│  │  │     └─ page.jsx
+│  │  └─ settings
+│  │     ├─ @account
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @notification
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ @privacy
+│  │     │  ├─ default.jsx
+│  │     │  └─ page.jsx
+│  │     ├─ default.jsx
+│  │     ├─ layout.js
+│  │     └─ page.jsx
+│  ├─ (root)
+│  │  ├─ createPost
+│  │  │  ├─ @modal
+│  │  │  │  ├─ (...)login
+│  │  │  │  │  └─ page.jsx
+│  │  │  │  └─ default.jsx
+│  │  │  ├─ layout.jsx
+│  │  │  └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
+│  │  └─ page.jsx
+│  ├─ api
+│  │  └─ auth
+│  │     └─ [...nextauth]
+│  │        └─ route.js
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.jsx
+│  └─ not-found.jsx
+├─ components
+│  ├─ footer
+│  │  └─ Footer.jsx
+│  ├─ forms
+│  │  ├─ Loginform.jsx
+│  │  └─ SignupForm.jsx
+│  ├─ layout
+│  │  └─ DashboardSidebar.jsx
+│  ├─ navbar
+│  │  ├─ DashboardNavbar.jsx
+│  │  └─ Navbar.jsx
+│  └─ shared
+│     ├─ button
+│     │  └─ Button.jsx
+│     ├─ dropdown
+│     │  └─ Dropdown.jsx
+│     ├─ inputs
+│     │  └─ Inputs.jsx
+│     ├─ modal
+│     │  └─ Modal.jsx
+│     ├─ OtpInputs
+│     │  └─ otpInputs.jsx
+│     └─ phoneInput
+│        ├─ Dropdown.jsx
+│        └─ PhoneInput.jsx
+├─ db
+│  └─ index.js
+├─ hooks
+│  ├─ useClickOutside.js
+│  ├─ useFetch.js
+│  └─ usePagination.js
+├─ public
+│  ├─ assets
+│  │  ├─ icons
+│  │  └─ images
+│  ├─ next.svg
+│  └─ vercel.svg
+├─ README.md
+├─ services
+│  ├─ apiSlices
+│  │  └─ productsSlice.js
+│  └─ socket
+│     └─ index.js
+├─ store
+│  ├─ actions
+│  ├─ contexts
+│  │  └─ userContext.jsx
+│  ├─ index.js
+│  └─ reducers
+│     └─ counterSlice.js
+└─ utils
+   ├─ ContextProvider.jsx
+   └─ helpers.js
+├─ jsconfig.json
+├─ auth.js
+├─ middleware.js
+├─ next.config.mjs
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.mjs
+├─ tailwind.config.js
+
+```
