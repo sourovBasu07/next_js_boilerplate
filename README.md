@@ -24,12 +24,12 @@ Next JS Advanced Folder Structure
 .
 ├─ app
 │  ├─ (auth)
-│  │  ├─ error.jsx
-│  │  ├─ layout.jsx
 │  │  ├─ login
 │  │  │  └─ page.jsx
 │  │  └─ signup
 │  │     └─ page.jsx
+│  │  ├─ error.jsx
+│  │  ├─ layout.jsx
 │  ├─ (dashboard)
 │  │  ├─ dashboard
 │  │  │  └─ page.jsx
@@ -184,7 +184,7 @@ Dynamic routing
 │  │  │     └─ page.jsx
 ```
 
-Paraller routing 
+Parallel routing 
 
 ```
 │  ├─ (dashboard)
