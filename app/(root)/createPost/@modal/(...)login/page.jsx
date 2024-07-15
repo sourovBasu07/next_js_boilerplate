@@ -13,9 +13,11 @@ const LoginModal = () => {
     const router = useRouter();
     const [show, setShow] = useState(true)
     return (
-        <div className="">
-            <Modal show={show} onClose={() => setShow(false)} callback={() => router.back()}>
-                <LoginForm />
+        <div>
+            <Modal show={show} onClose={() => router.back()} callback={() => router.back()}>
+                <div className="bg-white py-10">
+                    <LoginForm />
+                </div>
             </Modal>
         </div>
     )

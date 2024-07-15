@@ -1,8 +1,6 @@
 // Sub-layout for auth routes group 
 
-import { Poppins } from "next/font/google";
-import "@/app/globals.css";
-import ContextProvider from "@/utils/ContextProvider";
+
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
 

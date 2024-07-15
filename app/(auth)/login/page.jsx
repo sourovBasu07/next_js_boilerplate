@@ -3,7 +3,9 @@ import LoginForm from '@/components/forms/Loginform';
 const page = () => {
     return (
         <div className="">
-            <LoginForm />
+            <div className="w-1/2 mx-auto my-14">
+                <LoginForm />
+            </div>
         </div>
     )
 }

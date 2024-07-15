@@ -1,18 +1,12 @@
 "use client";
 
 import React from 'react'
-import { useForm } from 'react-hook-form';
 import Input from '@/components/shared/inputs/Inputs';
 import Button from '@/components/shared/button/Button';
 
 const LoginForm = ({ openNewPage, callback }) => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors }
-    } = useForm();
 
-    const onSubmit = (data) => {
+    const handleSubmit = (data) => {
         console.log(data);
 
         // Navigate to new page based on modal or page
@@ -25,9 +19,9 @@ const LoginForm = ({ openNewPage, callback }) => {
                 <p className={`font-medium text-2xl leading-9 text-center`}>Sign In</p>
             </div>
             <div className='w-full flex flex-col space-y-[1.875rem]'>
-                <form onSubmit={handleSubmit(onSubmit)}>
+                <form onSubmit={handleSubmit}>
                     <div className="flex flex-col gap-[1.125rem]">
-                        <Input style="outline" id='email' type="email" rest={{ ...register("email") }} label="Email Address" placeholder="Enter your email address" className="" />
+                        <Input style="outline" id='email' type="email" label="Email Address" placeholder="Enter your email address" className="" />
                         <Input
                             type="password"
                             style="outline"
@@ -36,8 +30,6 @@ const LoginForm = ({ openNewPage, callback }) => {
                             label="Password"
                             placeholder="Enter your password"
                             Icon
-                            error={errors?.password?.message}
-                            rest={{ ...register("password") }}
                         />
                     </div>
                     <div className="flex justify-between mt-5 mb-[1.875rem]">
@@ -58,11 +50,6 @@ const LoginForm = ({ openNewPage, callback }) => {
 
                     <p className="text-primary underline cursor-pointer font-medium ml-1 text-base leading-6" onClick={() => openNewPage("signup")}>Create Account</p>
 
-                </div>
-                <div className="flex justify-between gap-5 items-center">
-                    <hr className="border w-full border-borderColor " />
-                    <p className="text-base text-textColor2 leading-6">OR</p>
-                    <hr className="border w-full border-borderColor" />
                 </div>
             </div>
         </div>

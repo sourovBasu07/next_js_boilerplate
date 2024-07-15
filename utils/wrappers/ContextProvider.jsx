@@ -1,8 +1,8 @@
 "use client";
 
 import { Provider } from "react-redux";
-import { UserContextProvider } from "../store/contexts/userContext";
 import { store } from "@/store";
+import { UserContextProvider } from "@/store/contexts/userContext";
 
 export default function ContextPovider({ children }) {
     return (

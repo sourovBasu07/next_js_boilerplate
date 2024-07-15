@@ -4,18 +4,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 How to run the project
 ```javascript
-npm install
+yarn
 ```
 and
 ```javascript
-npm run dev
+yarn dev
 ```
 
 Following packages are used in this project:
 
 - [Axios](https://www.npmjs.com/package/axios)
 - [Tailwind](https://tailwindcss.com/docs)
-- [React hook form](https://react-hook-form.com/get-started)
 - [Redux Toolkit](https://redux-toolkit.js.org/introduction/getting-started)
 - [Socket.IO](https://socket.io/docs/v4/tutorial/introduction)
 - [Next-auth](https://authjs.dev/getting-started/installation)

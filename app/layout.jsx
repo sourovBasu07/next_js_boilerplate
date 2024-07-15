@@ -2,7 +2,7 @@
 
 import { Poppins } from "next/font/google";
 import "@/app/globals.css";
-import ContextPovider from "@/utils/ContextProvider";
+import ContextPovider from "@/utils/wrappers/ContextProvider";
 
 const poppins = Poppins({
     subsets: ["latin"],

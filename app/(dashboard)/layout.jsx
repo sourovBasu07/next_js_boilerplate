@@ -15,9 +15,9 @@ export default function RootLayout({
     children,
 }) {
     return (
-        <div className="">
+        <div className="flex min-h-screen">
             <DashboardSidebar />
-            <div className="">
+            <div className="w-3/4 flex flex-col">
                 <DashboardNavbar />
                 {children}
             </div>

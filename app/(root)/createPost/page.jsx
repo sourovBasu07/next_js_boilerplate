@@ -7,7 +7,7 @@ const CreatePost = () => {
         <div>
             CreatePost
             <Link href="/login">
-                <Button type='submit' name='Sign In' className='bg-primary2 hover:bg-primary text-base font-medium leading-6' />
+                <Button type='submit' name='Create new post' className='bg-primary2 hover:bg-primary text-base font-medium leading-6' />
             </Link>
         </div>
     )
