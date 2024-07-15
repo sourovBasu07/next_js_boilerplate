@@ -3,6 +3,7 @@
 import React from 'react'
 import Input from '@/components/shared/inputs/Inputs';
 import Button from '@/components/shared/button/Button';
+import Link from 'next/link';
 
 const LoginForm = ({ openNewPage, callback }) => {
 
@@ -48,7 +49,7 @@ const LoginForm = ({ openNewPage, callback }) => {
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-1">
                     <p className="text-base leading-6 text-primary2">Don`&apos;t have an account yet?</p>
 
-                    <p className="text-primary underline cursor-pointer font-medium ml-1 text-base leading-6" onClick={() => openNewPage("signup")}>Create Account</p>
+                    <Link href="/signup" className="text-primary underline cursor-pointer font-medium ml-1 text-base leading-6">Create Account</Link>
 
                 </div>
             </div>

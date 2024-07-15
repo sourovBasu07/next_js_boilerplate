@@ -1,27 +1,9 @@
 "use client";
 
-// This is the landing page 
-import usePagination from '@/hooks/usePagination';
-import { useGetAllProductsQuery } from '@/services/apiSlices/productsSlice';
-import LoadingComponent from '@/utils/wrappers/Loading';
-import React from 'react'
-
 const Homepage = () => {
-    const { data, isLoading, error } = useGetAllProductsQuery();
-
-    const { paginatedData, currentPage, limit, totalPages, hasPreviousPage, hasNextPage, PaginationComponent } = usePagination(data?.products);
-
-    console.log(paginatedData);
-
-    if (isLoading) {
-        return <LoadingComponent />
-    }
-
     return (
-        <div>
-            {paginatedData?.map((item) => (
-                <p key={item.id} className="">{item.title}</p>
-            ))}
+        <div className="h-[350px] flex justify-center items-center bg-primary3">
+            <h2 className="font-semibold text-2xl text-white">Landing Page</h2>
         </div>
     )
 }
