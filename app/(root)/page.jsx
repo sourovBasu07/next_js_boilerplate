@@ -4,6 +4,7 @@
 
 import SuspenseWrapper from '@/utils/wrappers/SuspenseWrapper';
 import Homepage from '@/components/homepage/Homepage';
+import Switch from '@/components/shared/switch/Switch';
 
 
 const Home = () => {

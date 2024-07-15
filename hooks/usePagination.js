@@ -29,18 +29,21 @@ const usePagination = (initialData) => {
         replace(`${pathname}?${params.toString()}`);
     };
 
-    const PaginationComponent = () => {
+    const PaginationComponent = ({ showStats }) => {
         return (
-            <div className="flex items-center gap-10">
-                <button disabled={!hasPreviousPage} className="" onClick={() => handlePageChange(currentPage - 1)}>&lt; Prev</button>
-                <div className="flex gap-3">
-                    {pages.map((page, index) => {
-                        return (
-                            <button key={page} className={`w-10 h-10 rounded-full ${page === currentPage ? "bg-primary2 text-white" : "bg-white text-primary"}`} onClick={() => handlePageChange(page)}>{page}</button>
-                        )
-                    })}
+            <div className="">
+                {showStats && <div className="text-textColor2 text-sm leading-5 font-normal">{`Showing ${start + 1}-${end + 1} of ${initialData?.length} results`}</div>}
+                <div className="flex items-center gap-10">
+                    <button disabled={!hasPreviousPage} className="" onClick={() => handlePageChange(currentPage - 1)}>&lt; Prev</button>
+                    <div className="flex gap-3">
+                        {pages.map((page, index) => {
+                            return (
+                                <button key={page} className={`w-10 h-10 rounded-full ${page === currentPage ? "bg-primary2 text-white" : "bg-white text-primary"}`} onClick={() => handlePageChange(page)}>{page}</button>
+                            )
+                        })}
+                    </div>
+                    <button disabled={!hasNextPage} className="" onClick={() => handlePageChange(currentPage + 1)}>Next &gt;</button>
                 </div>
-                <button disabled={!hasNextPage} className="" onClick={() => handlePageChange(currentPage + 1)}>Next &gt;</button>
             </div>
         )
     }
