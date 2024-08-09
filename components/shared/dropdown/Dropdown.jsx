@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
-import { ArrowDown } from '../../../assets';
+// import { ArrowDown } from '@/assets';
 
 const Dropdown = ({ data, className, onChange = () => { }, error, placeholder = 'Select', label, addInput = false, reset, selectedItem, size = "lg", InputBG = false, required, primaryColor = false }) => {
     const [selected, setSelected] = useState(null);
@@ -82,7 +82,7 @@ const Dropdown = ({ data, className, onChange = () => { }, error, placeholder = 
                     <p className="overflow-hidden text-ellipsis whitespace-nowrap">
                         {selected ? selected.name : placeholder}
                     </p>
-                    <ArrowDown className={`w-5 h-5 ${primaryColor ? "stroke-primary" : "stroke-blacky"}`} />
+                    {/* <ArrowDown className={`w-5 h-5 ${primaryColor ? "stroke-primary" : "stroke-blacky"}`} /> */}
                 </div>
                 <ul className={`${isOpen ? '' : 'hidden'} absolute w-full max-h-[21rem] bg-white ${size === "sm" ? "rounded" : "rounded-xl"} border-[0.04rem] border-borderColor mt-3 py-2 z-10 overflow-x-hidden overflow-y-auto`}>
                     {data?.map((item) => (

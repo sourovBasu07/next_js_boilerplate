@@ -13,7 +13,7 @@ export const proudctApi = createApi({
     endpoints: (builder) => ({
         // Define a query to get all products
         getAllProducts: builder.query({
-            query: () => 'products'
+            query: (limit = 50, skip = 0) => `products?limit=${limit}&skip=${skip}`
         }),
         // Define a query to search for products by name   
         getProduct: builder.query({

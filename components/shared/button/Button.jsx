@@ -30,14 +30,15 @@ const Button = ({
   Icon,
   before,
   after,
-  onClick,
-  iconClassName
+  onClick = () => { },
+  iconClassName,
+  ...props
 }) => {
 
   return (
     <button
       className={`${styles[style]} flex items-center justify-center gap-3 ${className} rounded-lg`}
-      onClick={onClick} type={type}
+      onClick={onClick} type={type} {...props}
     >
       {before && Icon && <Icon className={`${iconClassName}`} />}
       {name}

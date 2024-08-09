@@ -19,6 +19,7 @@
  */
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
+import { SearchIcon } from '@/assets';
 
 const styles = {
     primary: "w-full bg-inputColor border-[0.04rem] rounded-lg border-borderColor text-blacky placeholder:text-sm placeholder:text-textColor2",
@@ -74,10 +75,10 @@ const Input = ({
 
     if (type === 'search') {
         return (
-            <div className={`w-full flex gap-3 items-center border px-3 border-borderColor bg-inputColor rounded-xl ${className} ${inputSize[size]}`}>
-                <Image className={size === 'lg' ? 'h-full w-full' : 'h-4 w-4'} src={searchIcon} alt="searchIcon" />
+            <div className={`w-full flex gap-3 items-center border px-3 border-borderColor bg-transparent rounded-xl ${className} ${inputSize[size]}`}>
+                <Image className={size === 'lg' ? 'h-full w-full' : 'h-4 w-4'} src={SearchIcon} alt="searchIcon" />
                 <input
-                    className={`text-textColor w-full bg-inputColor focus:outline-none`}
+                    className={`text-textColor w-full bg-transparent focus:outline-none`}
                     id={id}
                     name={name}
                     value={value}
