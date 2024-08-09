@@ -103,9 +103,9 @@ Next JS Advanced Folder Structure
 │  ├─ useFetch.js
 │  └─ usePagination.js
 ├─ public
-│  ├─ assets
-│  │  ├─ icons
-│  │  └─ images
+├─ assets
+│  ├─ icons
+│  └─ images
 ├─ services
 │  ├─ apiSlices
 │  │  └─ productsSlice.js
